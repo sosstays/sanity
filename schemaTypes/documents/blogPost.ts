@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
+import { marketField, sameMarketReference } from '../fields/market'
 
 export const blogPost = defineType({
   name: 'blogPost',
@@ -13,6 +14,7 @@ export const blogPost = defineType({
     { name: 'seo', title: 'SEO / AEO' },
   ],
   fields: [
+    { ...marketField, group: 'content' },
     defineField({
       name: 'title',
       title: 'Title',
@@ -120,7 +122,7 @@ export const blogPost = defineType({
       type: 'array',
       group: 'content',
       description: 'Link this post to relevant area guides (e.g. a post about Carlingford links to the Carlingford area guide) for internal linking and SEO.',
-      of: [{ type: 'reference', to: [{ type: 'areaGuide' }] }],
+      of: [{ type: 'reference', to: [{ type: 'areaGuide' }], options: sameMarketReference }],
     }),
     defineField({
       name: 'promotedProperty',
@@ -129,6 +131,7 @@ export const blogPost = defineType({
       group: 'content',
       description: 'Feature a stay in the article sidebar — e.g. the property this post is about, or one relevant to it.',
       to: [{ type: 'propertyPage' }],
+      options: sameMarketReference,
     }),
     defineField({
       name: 'faqs',

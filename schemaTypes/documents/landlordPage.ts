@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
+import { marketField } from '../fields/market'
 
 // Landlord-facing pages: pitch, "become a partner", revenue calculator
 // context, etc. Kept as a separate type from blogPost/areaGuide because
@@ -17,6 +18,7 @@ export const landlordPage = defineType({
     { name: 'seo', title: 'SEO / AEO' },
   ],
   fields: [
+    { ...marketField, group: 'content' },
     defineField({
       name: 'title',
       title: 'Page Title',
@@ -72,6 +74,21 @@ export const landlordPage = defineType({
           preview: { select: { title: 'question' } },
         },
       ],
+    }),
+    // Links this page to its counterpart on the other market's site, so the
+    // site can output reciprocal hreflang tags (used from Phase 2).
+    defineField({
+      name: 'alternateVersion',
+      title: 'Same page in the other market',
+      type: 'reference',
+      group: 'content',
+      to: [{ type: 'landlordPage' }],
+      options: {
+        filter: ({ document }: { document?: { market?: string } }) =>
+          document?.market
+            ? { filter: 'market != $market', params: { market: document.market } }
+            : { filter: '' },
+      },
     }),
     defineField({
       name: 'ctaLabel',

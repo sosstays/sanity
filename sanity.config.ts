@@ -4,6 +4,7 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemaTypes'
 import { structure } from './structure'
 import { media } from 'sanity-plugin-media'
+import { markets, marketTypes } from './markets'
 
 export default defineConfig({
   name: 'default',
@@ -20,5 +21,18 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+    // Replace the default "new document" templates for market-scoped types
+    // so nothing can be created without a market.
+    templates: (prev) => [
+      ...prev.filter((t) => !marketTypes.some((m) => m.type === t.schemaType)),
+      ...markets.flatMap((m) =>
+        marketTypes.map((t) => ({
+          id: `${t.type}-${m.id}`,
+          title: `${t.single} (${m.title})`,
+          schemaType: t.type,
+          value: { market: m.id, ...(t.hasCountry ? { country: m.country } : {}) },
+        }))
+      ),
+    ],
   },
 })

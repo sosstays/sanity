@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
+import { marketField, sameMarketReference } from '../fields/market'
 
 // NOTE: This holds editorial/marketing content only (description, photos,
 // area context). Live availability, pricing, and the booking link itself
@@ -20,6 +21,7 @@ export const propertyPage = defineType({
     { name: 'seo', title: 'SEO / AEO' },
   ],
   fields: [
+    { ...marketField, group: 'content' },
     defineField({
       name: 'name',
       title: 'Property Name',
@@ -43,6 +45,37 @@ export const propertyPage = defineType({
       group: 'content',
       description: 'e.g. "Ardee, Co. Louth"',
       validation: (rule) => rule.required(),
+    }),
+    // Structured location. `location` above is still what the site reads;
+    // once these are filled on every property the site switches to them
+    // and `location` can be hidden.
+    defineField({
+      name: 'city',
+      title: 'City / Town',
+      type: 'string',
+      group: 'content',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'region',
+      title: 'County / State',
+      type: 'string',
+      group: 'content',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'country',
+      title: 'Country',
+      type: 'string',
+      group: 'content',
+      options: { list: [{ title: 'Ireland', value: 'IE' }, { title: 'India', value: 'IN' }] },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'geo',
+      title: 'Map Location',
+      type: 'geopoint',
+      group: 'content',
     }),
     defineField({
       name: 'locationLink',
@@ -252,7 +285,7 @@ export const propertyPage = defineType({
       title: 'Related Area Guides',
       type: 'array',
       group: 'content',
-      of: [{ type: 'reference', to: [{ type: 'areaGuide' }] }],
+      of: [{ type: 'reference', to: [{ type: 'areaGuide' }], options: sameMarketReference }],
       description: 'Link to the area guide(s) covering this property\'s location, for cross-linking and SEO context.',
     }),
     defineField({

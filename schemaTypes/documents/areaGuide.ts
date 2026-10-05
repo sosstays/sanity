@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
+import { marketField, sameMarketReference } from '../fields/market'
 
 // These are the SEO/AEO anchor pages — Boyne Valley, Mournes, Carlingford,
 // etc. Built to rank for "[activity] in [area]" and "things to do in
@@ -17,6 +18,7 @@ export const areaGuide = defineType({
     { name: 'seo', title: 'SEO / AEO' },
   ],
   fields: [
+    { ...marketField, group: 'content' },
     defineField({
       name: 'areaName',
       title: 'Area Name',
@@ -32,6 +34,17 @@ export const areaGuide = defineType({
       group: 'content',
       options: { source: 'areaName', maxLength: 96 },
       validation: (rule) => rule.required(),
+    }),
+    // Not required yet: existing Irish guides have no structured location,
+    // and it can't be derived from the area name. Tighten once backfilled.
+    defineField({ name: 'city', title: 'City / Town', type: 'string', group: 'content' }),
+    defineField({ name: 'region', title: 'County / State', type: 'string', group: 'content' }),
+    defineField({
+      name: 'country',
+      title: 'Country',
+      type: 'string',
+      group: 'content',
+      options: { list: [{ title: 'Ireland', value: 'IE' }, { title: 'India', value: 'IN' }] },
     }),
     defineField({
       name: 'heroImage',
@@ -138,7 +151,7 @@ export const areaGuide = defineType({
       title: 'Featured Properties in This Area',
       type: 'array',
       group: 'content',
-      of: [{ type: 'reference', to: [{ type: 'propertyPage' }] }],
+      of: [{ type: 'reference', to: [{ type: 'propertyPage' }], options: sameMarketReference }],
       description: 'Properties to showcase on this area guide.',
     }),
     defineField({
@@ -146,7 +159,7 @@ export const areaGuide = defineType({
       title: 'Related Blog Posts',
       type: 'array',
       group: 'content',
-      of: [{ type: 'reference', to: [{ type: 'blogPost' }] }],
+      of: [{ type: 'reference', to: [{ type: 'blogPost' }], options: sameMarketReference }],
     }),
     ...seoFields.map((field) => ({ ...field, group: 'seo' })),
   ],
