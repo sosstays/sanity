@@ -26,6 +26,7 @@ export const singletons = [
   { type: 'footer', title: 'Footer', icon: 'bars-4' },
   { type: 'navigation', title: 'Navigation', icon: 'bars-4' },
   { type: 'heroSection', title: 'Homepage Hero', icon: 'image' },
+  { type: 'promoGrid', title: 'Promo Grid', icon: 'th-large' },
   { type: 'hostsModule', title: 'Hosts Module', icon: 'users' },
   { type: 'audienceTabs', title: 'Landlord Audience Tabs', icon: 'users' },
   { type: 'privacyPolicyPage', title: 'Privacy Policy', icon: 'document-text' },

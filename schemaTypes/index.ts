@@ -18,6 +18,7 @@ import { partnersPage } from './documents/partnersPage'
 import { partner } from './documents/partner'
 import { shopPage } from './documents/shopPage'
 import { shopProduct } from './documents/shopProduct'
+import { promoGrid } from './documents/promoGrid'
 
 export const schemaTypes = [
   // Documents
@@ -41,4 +42,5 @@ export const schemaTypes = [
   partner,
   shopPage,
   shopProduct,
+  promoGrid,
 ]
