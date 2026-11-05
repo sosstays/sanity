@@ -166,6 +166,13 @@ export const propertyPage = defineType({
               type: 'number',
               validation: (rule) => rule.required().min(1),
             }),
+            defineField({
+              name: 'badge',
+              title: 'Highlight Badge',
+              type: 'string',
+              description: "Optional pill pinned to this room's photo on landing pages, e.g. \"The kids' pick\". Leave empty for no badge.",
+              validation: (rule) => rule.max(24),
+            }),
           ],
           preview: {
             select: { title: 'name', subtitle: 'bedConfiguration', media: 'image' },

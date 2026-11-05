@@ -88,7 +88,7 @@ export const hostsModule = defineType({
       title: 'CTA Button URL',
       type: 'string',
       group: 'intro',
-      initialValue: '/landlords-whats-next',
+      initialValue: '/landlords#calculator',
     }),
     defineField({
       name: 'stepperEyebrow',

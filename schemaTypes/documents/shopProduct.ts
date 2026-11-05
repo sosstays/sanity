@@ -159,10 +159,11 @@ export const shopProduct = defineType({
     }),
     defineField({
       name: 'enabled',
-      title: 'Enabled',
+      title: 'Show In Shop',
       type: 'boolean',
       initialValue: true,
-      description: 'Turn off to hide this item from the shop without deleting it.',
+      description:
+        'Turn off to hide this item from the shop without deleting it. If "Also Offer As A Stay Add-on" is on, it stays available as an add-on on property pages and at checkout.',
     }),
   ],
   preview: {

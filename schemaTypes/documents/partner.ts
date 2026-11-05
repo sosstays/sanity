@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { PARTNER_CATEGORIES } from '../shared/partnerCategories'
+import { marketField } from '../fields/market'
 
 // Repeatable — one document per partner shown in the /partners
 // directory (see web/src/app/partners/page.tsx). Not a singleton:
@@ -19,6 +20,7 @@ export const partner = defineType({
     { name: 'profile', title: 'Profile page' },
   ],
   fields: [
+    { ...marketField, group: 'card' },
     defineField({
       name: 'name',
       title: 'Business Name',

@@ -13,6 +13,7 @@ export const marketTypes = [
   { type: 'areaGuide', title: 'Area Guides', single: 'Area Guide', hasCountry: true },
   { type: 'blogPost', title: 'Blog Posts', single: 'Blog Post', hasCountry: false },
   { type: 'landlordPage', title: 'Landlord Pages', single: 'Landlord Page', hasCountry: false },
+  { type: 'partner', title: 'Partners', single: 'Partner', hasCountry: false },
 ] as const
 
 export const marketTypeNames: string[] = marketTypes.map((t) => t.type)
@@ -33,8 +34,15 @@ export const singletons = [
   { type: 'termsPage', title: 'Terms & Conditions', icon: 'document-text' },
   { type: 'corporateStaysPage', title: 'Corporate Stays Page', icon: 'case' },
   { type: 'aboutPage', title: 'About Page', icon: 'heart' },
-  { type: 'partnersPage', title: 'Partners Page', icon: 'users' },
   { type: 'shopPage', title: 'Shop Page', icon: 'basket' },
+  { type: 'partnersPage', title: 'Partners Page', icon: 'users' },
+] as const
+
+// Singletons shared by every market: a single document with the plain type
+// name as its ID (e.g. `partnersPage`), shown under "Shared".
+export const sharedSingletons = [
+  { type: 'countrySwitcher', title: 'Country Switcher', icon: 'earth-globe' },
 ] as const
 
 export const singletonTypeNames: string[] = singletons.map((s) => s.type)
+export const sharedSingletonTypeNames: string[] = sharedSingletons.map((s) => s.type)

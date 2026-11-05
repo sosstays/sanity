@@ -29,7 +29,7 @@ export const seoFields = [
     name: 'noIndex',
     title: 'Hide from search engines',
     type: 'boolean',
-    description: 'Turn on to stop this page appearing in Google, Bing, and AI search results.',
-    initialValue: false,
+    description:
+      'Turn on to stop this page appearing in Google, Bing, and AI search results. Ireland pages are visible unless this is on. India pages are hidden by default: they only appear in search once this is explicitly switched OFF (toggle it on, then off).',
   }),
 ]

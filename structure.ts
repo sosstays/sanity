@@ -1,7 +1,15 @@
 import { createElement } from 'react'
 import type { StructureResolver } from 'sanity/structure'
 import { Icon } from '@sanity/icons'
-import { markets, marketTypes, marketTypeNames, singletons, singletonTypeNames } from './markets'
+import {
+  markets,
+  marketTypes,
+  marketTypeNames,
+  singletons,
+  singletonTypeNames,
+  sharedSingletons,
+  sharedSingletonTypeNames,
+} from './markets'
 
 // Custom desk structure. Each market (Ireland, India) has its own copy of
 // every singleton (Site Settings, Footer, Navigation, ...) plus filtered
@@ -13,7 +21,12 @@ type Builder = Parameters<StructureResolver>[0]
 
 const icon = (symbol: string) => () => createElement(Icon, { symbol: symbol as never })
 
-const singletonItem = (S: Builder, s: (typeof singletons)[number], documentId: string, title = s.title) =>
+const singletonItem = (
+  S: Builder,
+  s: { type: string; title: string; icon: string },
+  documentId: string,
+  title = s.title
+) =>
   S.listItem()
     .title(title)
     .icon(icon(s.icon))
@@ -56,9 +69,14 @@ const sharedSection = (S: Builder) =>
         .items([
           // Types that aren't split by market (county pricing stats, landing
           // pages, partners, shop products, ...).
+          ...sharedSingletons.map((s) => singletonItem(S, s, s.type)),
           ...S.documentTypeListItems().filter((listItem) => {
             const id = listItem.getId() ?? ''
-            return !singletonTypeNames.includes(id) && !marketTypeNames.includes(id)
+            return (
+              !singletonTypeNames.includes(id) &&
+              !sharedSingletonTypeNames.includes(id) &&
+              !marketTypeNames.includes(id)
+            )
           }),
           S.divider(),
           // The original un-suffixed singletons. The live site reads these

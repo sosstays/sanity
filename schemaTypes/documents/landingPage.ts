@@ -184,6 +184,13 @@ export const landingPage = defineType({
       to: [{type: 'propertyPage'}],
       description: 'The property this landing page is driving bookings toward.',
     }),
+    defineField({
+      name: 'roomsHeading',
+      title: 'Rooms heading',
+      type: 'string',
+      description: "Heading above the featured property's room cards, e.g. \"The rooms — and which one the kids want\". Falls back to \"The rooms\".",
+      initialValue: 'The rooms',
+    }),
 
     // FLEXIBLE INFO SECTIONS (e.g. Funtasia facts, pricing table, "while you're here")
     defineField({
