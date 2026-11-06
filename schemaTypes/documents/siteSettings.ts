@@ -51,6 +51,24 @@ export const siteSettings = defineType({
       initialValue: 'info@sosstays.com',
     }),
     defineField({
+      name: 'phone',
+      title: 'Phone',
+      type: 'string',
+      description: 'Public business phone in international format, e.g. +353 1 234 5678 or +91 98765 43210. Used in structured data (schema.org).',
+    }),
+    defineField({
+      name: 'address',
+      title: 'Business Address',
+      type: 'object',
+      description: 'Used in structured data (schema.org) only. Leave blank if the business has no public address in this market — nothing is inherited from the other site.',
+      fields: [
+        defineField({ name: 'streetAddress', title: 'Street address', type: 'string' }),
+        defineField({ name: 'locality', title: 'City / town', type: 'string' }),
+        defineField({ name: 'region', title: 'County / state', type: 'string' }),
+        defineField({ name: 'postalCode', title: 'Postcode / PIN code', type: 'string' }),
+      ],
+    }),
+    defineField({
       name: 'bookingSubdomainUrl',
       title: 'Uplisting Booking Subdomain URL',
       type: 'url',

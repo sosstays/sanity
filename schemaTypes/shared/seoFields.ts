@@ -32,4 +32,32 @@ export const seoFields = [
     description:
       'Turn on to stop this page appearing in Google, Bing, and AI search results. Ireland pages are visible unless this is on. India pages are hidden by default: they only appear in search once this is explicitly switched OFF (toggle it on, then off).',
   }),
+  defineField({
+    name: 'canonicalOverride',
+    title: 'Canonical URL override',
+    type: 'url',
+    description:
+      'Leave blank. Only set this if this page is a duplicate of another URL and search engines should treat that URL as the original. Must be an absolute URL.',
+    validation: (rule) => rule.uri({ scheme: ['https'] }),
+  }),
+  defineField({
+    name: 'alternates',
+    title: 'Same page on the other market’s site',
+    type: 'reference',
+    description:
+      'Link the equivalent page on the other country’s site (e.g. the India version of this Ireland page). Both pages must link to each other — this is what produces the hreflang tags. Leave blank if the page exists on one site only.',
+    to: [
+      { type: 'propertyPage' },
+      { type: 'areaGuide' },
+      { type: 'blogPost' },
+      { type: 'landlordPage' },
+      { type: 'landingPage' },
+    ],
+    options: {
+      filter: ({ document }: { document?: { market?: string } }) =>
+        document?.market
+          ? { filter: 'market != $market', params: { market: document.market } }
+          : { filter: '' },
+    },
+  }),
 ]

@@ -79,7 +79,8 @@ export const landlordPage = defineType({
     // site can output reciprocal hreflang tags (used from Phase 2).
     defineField({
       name: 'alternateVersion',
-      title: 'Same page in the other market',
+      title: 'Same page in the other market (deprecated)',
+      description: 'Deprecated — use "Same page on the other market’s site" in the SEO tab instead. Still read as a fallback.',
       type: 'reference',
       group: 'content',
       to: [{ type: 'landlordPage' }],
