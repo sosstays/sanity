@@ -34,6 +34,7 @@ export const singletons = [
   { type: 'termsPage', title: 'Terms & Conditions', icon: 'document-text' },
   { type: 'corporateStaysPage', title: 'Corporate Stays Page', icon: 'case' },
   { type: 'bespokeTripPage', title: 'Bespoke Ireland Trip Page', icon: 'heart' },
+  { type: 'giftMakerPage', title: 'Gift Maker Page', icon: 'gift' },
   { type: 'aboutPage', title: 'About Page', icon: 'heart' },
   { type: 'shopPage', title: 'Shop Page', icon: 'basket' },
   { type: 'partnersPage', title: 'Partners Page', icon: 'users' },
