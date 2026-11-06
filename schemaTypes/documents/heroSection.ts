@@ -13,16 +13,17 @@ export const heroSection = defineType({
   fields: [
     defineField({
       name: 'eyebrow',
-      title: 'Eyebrow Text',
+      title: 'Eyebrow Text (renders as the page\'s H1)',
       type: 'string',
-      description: 'Small label above the headline, e.g. "Somewhere Out Somewhere"',
+      description:
+        'Small label above the headline, e.g. "Somewhere Out Somewhere" — this is the actual <h1> on the homepage, so keep it meaningful rather than purely decorative.',
     }),
     defineField({
       name: 'heading',
-      title: 'Headline',
+      title: 'Headline (renders as H2)',
       type: 'text',
       rows: 2,
-      description: 'The main headline. Line breaks are preserved, e.g. "Somewhere out.\\nSomewhere quiet."',
+      description: 'The main headline, shown below the H1 eyebrow. Line breaks are preserved, e.g. "Somewhere out.\\nSomewhere quiet."',
       validation: (rule) => rule.required(),
     }),
     defineField({
