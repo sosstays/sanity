@@ -76,6 +76,20 @@ export const siteSettings = defineType({
       validation: (rule) => rule.uri({ scheme: ['http', 'https'] }),
     }),
     defineField({
+      name: 'propertyOrder',
+      title: 'Property display order',
+      type: 'array',
+      description:
+        'Drag to set the order properties appear in across the site — homepage featured stays, the /stays page, and anywhere else properties are listed. Any property not added here appears afterwards, in alphabetical order.',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'propertyPage' }],
+          options: { disableNew: true },
+        },
+      ],
+    }),
+    defineField({
       name: 'socialLinks',
       title: 'Social Links',
       type: 'array',
