@@ -86,6 +86,14 @@ export const propertyPage = defineType({
       validation: (rule) => rule.uri({ scheme: ['http', 'https'] }),
     }),
     defineField({
+      name: 'destinationHeading',
+      title: 'Destination Heading (homepage stays carousel)',
+      type: 'string',
+      group: 'content',
+      description:
+        'Shown above this property\'s photo in the homepage "A few places to start" carousel, e.g. "Stays in Clare — Liscannor & the Cliffs of Moher". Leave blank to show no heading there.',
+    }),
+    defineField({
       name: 'shortDescription',
       title: 'Short Description',
       type: 'text',
