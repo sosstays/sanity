@@ -4,6 +4,7 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemaTypes'
 import { structure } from './structure'
 import { media } from 'sanity-plugin-media'
+import { table } from '@sanity/table'
 import { markets, marketTypes } from './markets'
 
 export default defineConfig({
@@ -17,6 +18,7 @@ export default defineConfig({
     structureTool({ structure }),
     visionTool(), // lets you test GROQ queries directly in the Studio
     media(),
+    table(), // adds the `table` block type usable in any Portable Text body
   ],
 
   schema: {

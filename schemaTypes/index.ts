@@ -1,3 +1,4 @@
+import { embedBlock } from './shared/embedBlock'
 import { blogPost } from './documents/blogPost'
 import { propertyPage } from './documents/propertyPage'
 import { areaGuide } from './documents/areaGuide'
@@ -24,6 +25,8 @@ import { promoGrid } from './documents/promoGrid'
 import { countrySwitcher } from './documents/countrySwitcher'
 
 export const schemaTypes = [
+  // Shared object types
+  embedBlock,
   // Documents
   blogPost,
   propertyPage,

@@ -61,6 +61,8 @@ export const blogPost = defineType({
       title: 'Body',
       type: 'array',
       group: 'content',
+      description:
+        'Rich text. Use the "+" menu to insert a photo, a table, or an HTML embed (YouTube, a form, a booking widget) alongside paragraphs.',
       of: [
         { type: 'block' },
         {
@@ -70,6 +72,8 @@ export const blogPost = defineType({
             defineField({ name: 'alt', title: 'Alt Text', type: 'string' }),
           ],
         },
+        { type: 'table' },
+        { type: 'embedBlock' },
       ],
       validation: (rule) => rule.required(),
     }),
