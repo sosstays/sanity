@@ -14,6 +14,7 @@ import { termsPage } from './documents/termsPage'
 import { countyPricingStats } from './documents/countyPricingStats'
 import { landingPage } from './documents/landingPage'
 import { corporateStaysPage } from './documents/corporateStaysPage'
+import { listYourPropertyPage } from './documents/listYourPropertyPage'
 import { bespokeTripPage } from './documents/bespokeTripPage'
 import { giftMakerPage } from './documents/giftMakerPage'
 import { aboutPage } from './documents/aboutPage'
@@ -43,6 +44,7 @@ export const schemaTypes = [
   countyPricingStats,
   landingPage,
   corporateStaysPage,
+  listYourPropertyPage,
   bespokeTripPage,
   giftMakerPage,
   aboutPage,
