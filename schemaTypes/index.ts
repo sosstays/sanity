@@ -1,4 +1,5 @@
 import { embedBlock } from './shared/embedBlock'
+import { anchorMark } from './shared/anchorMark'
 import { blogPost } from './documents/blogPost'
 import { propertyPage } from './documents/propertyPage'
 import { areaGuide } from './documents/areaGuide'
@@ -28,6 +29,7 @@ import { countrySwitcher } from './documents/countrySwitcher'
 export const schemaTypes = [
   // Shared object types
   embedBlock,
+  anchorMark,
   // Documents
   blogPost,
   propertyPage,

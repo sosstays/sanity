@@ -62,9 +62,28 @@ export const blogPost = defineType({
       type: 'array',
       group: 'content',
       description:
-        'Rich text. Use the "+" menu to insert a photo, a table, or an HTML embed (YouTube, a form, a booking widget) alongside paragraphs.',
+        'Rich text. Use the "+" menu to insert a photo, a table, or an HTML embed (YouTube, a form, a booking widget) alongside paragraphs. Headings get a jump-to link automatically from their own text; select any text and choose "Anchor" from the toolbar to mark a custom jump-to point for an in-article index.',
       of: [
-        { type: 'block' },
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              // Re-declared explicitly: providing `marks.annotations` at all
+              // replaces Studio's default annotations (which include Link),
+              // so Link has to be listed here too or it disappears from the
+              // toolbar.
+              defineField({
+                name: 'link',
+                title: 'URL',
+                type: 'object',
+                fields: [
+                  defineField({ name: 'href', title: 'URL', type: 'url', validation: (rule) => rule.required() }),
+                ],
+              }),
+              { type: 'anchor' },
+            ],
+          },
+        },
         {
           type: 'image',
           options: { hotspot: true },
