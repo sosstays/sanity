@@ -1,6 +1,7 @@
 import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one per market (`promoGrid-ie`, `promoGrid-in`),
 // managed via Studio Structure (see structure.ts / markets.ts). Drives the
@@ -20,6 +21,7 @@ export const promoGrid = defineType({
   type: 'document',
   icon: () => createElement(Icon, { symbol: 'th-large' }),
   fields: [
+    sectionIdField('promoSectionId', undefined, 'offers'),
     defineField({
       name: 'heading',
       title: 'Section title',

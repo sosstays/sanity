@@ -1,6 +1,7 @@
 import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one instance only, managed via Studio Structure
 // (see structure.ts), same pattern as heroSection/siteSettings. Drives
@@ -21,6 +22,7 @@ export const hostsModule = defineType({
     { name: 'marquee', title: 'Platforms strip' },
   ],
   fields: [
+    sectionIdField('hostsSectionId', 'intro', 'hosts'),
     defineField({
       name: 'eyebrow',
       title: 'Eyebrow Text',
