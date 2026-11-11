@@ -3,6 +3,7 @@ import { defineType, defineField, defineArrayMember } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
 import { iconField } from '../shared/iconField'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one instance only, managed via Studio Structure
 // (see structure.ts), same pattern as corporateStaysPage/heroSection.
@@ -36,6 +37,7 @@ export const aboutPage = defineType({
   ],
   fields: [
     // ---- Hero ----
+    sectionIdField('heroSectionId', 'hero', 'hero'),
     defineField({
       name: 'heroBadge',
       title: 'Badge Text',
@@ -71,6 +73,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- Intro ----
+    sectionIdField('introSectionId', 'intro', 'intro'),
     defineField({
       name: 'introParagraph1',
       title: 'Paragraph 1',
@@ -100,6 +103,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- Who we work with ----
+    sectionIdField('whatWeDoSectionId', 'whatWeDo', 'who-we-work-with'),
     // Renders as the same tabbed component used on /landlords (see
     // web/src/components/AudienceTabs.tsx), but with this page's own
     // three service lines rather than the landlord page's four audience
@@ -153,6 +157,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- Where we operate ----
+    sectionIdField('coverageSectionId', 'coverage', 'coverage'),
     defineField({
       name: 'coverageEyebrow',
       title: 'Eyebrow',
@@ -217,6 +222,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- The stays ----
+    sectionIdField('staysSectionId', 'stays', 'stays'),
     defineField({
       name: 'staysHeading',
       title: 'Heading',
@@ -285,6 +291,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- Meet the team ----
+    sectionIdField('teamSectionId', 'team', 'team'),
     defineField({
       name: 'teamEyebrow',
       title: 'Eyebrow',
@@ -408,6 +415,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- Work with us ----
+    sectionIdField('workWithUsSectionId', 'workWithUs', 'work-with-us'),
     defineField({
       name: 'workWithUsEyebrow',
       title: 'Eyebrow',
@@ -471,6 +479,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- Who owns us (collapsed accordion) ----
+    sectionIdField('ownershipSectionId', 'ownership', 'ownership'),
     defineField({
       name: 'ownershipHeading',
       title: 'Heading',
@@ -503,6 +512,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- How to reach us (collapsed accordion) ----
+    sectionIdField('reachUsSectionId', 'reachUs', 'reach-us'),
     defineField({
       name: 'reachUsHeading',
       title: 'Heading',
@@ -547,6 +557,7 @@ export const aboutPage = defineType({
     }),
 
     // ---- FAQ ----
+    sectionIdField('faqSectionId', 'faq', 'faq'),
     defineField({
       name: 'faqHeading',
       title: 'Heading',

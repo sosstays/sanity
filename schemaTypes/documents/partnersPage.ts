@@ -3,6 +3,7 @@ import { defineType, defineField, defineArrayMember } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
 import { PARTNER_CATEGORIES } from '../shared/partnerCategories'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one instance only, managed via Studio Structure
 // (see structure.ts), same pattern as aboutPage/corporateStaysPage.
@@ -29,6 +30,7 @@ export const partnersPage = defineType({
   ],
   fields: [
     // ---- Hero ----
+    sectionIdField('heroSectionId', 'hero', 'hero'),
     defineField({
       name: 'heroBadge',
       title: 'Badge Text',
@@ -64,6 +66,7 @@ export const partnersPage = defineType({
     }),
 
     // ---- Intro ----
+    sectionIdField('introSectionId', 'intro', 'intro'),
     defineField({
       name: 'introParagraph1',
       title: 'Paragraph 1',
@@ -93,6 +96,7 @@ export const partnersPage = defineType({
     }),
 
     // ---- How we work with partners ----
+    sectionIdField('tiersSectionId', 'tiers', 'tiers'),
     defineField({
       name: 'tiersEyebrow',
       title: 'Eyebrow',
@@ -144,6 +148,7 @@ export const partnersPage = defineType({
     }),
 
     // ---- Who we're looking for ----
+    sectionIdField('whoWeWantSectionId', 'whoWeWant', 'who-we-want'),
     defineField({
       name: 'whoWeWantEyebrow',
       title: 'Eyebrow',
@@ -217,6 +222,7 @@ export const partnersPage = defineType({
     }),
 
     // ---- Spotlight image (full-bleed band between "who we want" and the directory) ----
+    sectionIdField('spotlightSectionId', 'spotlight', 'spotlight'),
     defineField({
       name: 'spotlightHeading',
       title: 'Heading',
@@ -242,6 +248,7 @@ export const partnersPage = defineType({
     }),
 
     // ---- Directory ----
+    sectionIdField('directorySectionId', 'directory', 'directory'),
     defineField({
       name: 'directoryEyebrow',
       title: 'Eyebrow',
@@ -258,6 +265,7 @@ export const partnersPage = defineType({
     }),
 
     // ---- Become a partner ----
+    sectionIdField('becomePartnerSectionId', 'becomePartner', 'become-a-partner'),
     defineField({
       name: 'becomePartnerEyebrow',
       title: 'Eyebrow',

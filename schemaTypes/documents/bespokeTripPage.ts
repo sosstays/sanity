@@ -3,6 +3,7 @@ import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
 import { iconField } from '../shared/iconField'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one instance only, managed via Studio Structure
 // (see structure.ts), same pattern as corporateStaysPage/aboutPage. Drives
@@ -32,6 +33,7 @@ export const bespokeTripPage = defineType({
   ],
   fields: [
     // ---- Hero ----
+    sectionIdField('heroSectionId', 'hero', 'hero'),
     defineField({
       name: 'heroEyebrow',
       title: 'Eyebrow',
@@ -75,6 +77,7 @@ export const bespokeTripPage = defineType({
     }),
 
     // ---- We take care of every detail (scroll-converge photo stack) ----
+    sectionIdField('detailsSectionId', 'details', 'details'),
     defineField({
       name: 'detailsEyebrow',
       title: 'Eyebrow',
@@ -136,6 +139,7 @@ export const bespokeTripPage = defineType({
     }),
 
     // ---- How it works ----
+    sectionIdField('howSectionId', 'how', 'how'),
     defineField({
       name: 'howItWorksHeading',
       title: 'Heading',
@@ -179,6 +183,7 @@ export const bespokeTripPage = defineType({
     }),
 
     // ---- What we arrange ----
+    sectionIdField('arrangeSectionId', 'arrange', 'arrange'),
     defineField({
       name: 'whatWeArrangeHeading',
       title: 'Heading',
@@ -203,6 +208,7 @@ export const bespokeTripPage = defineType({
     }),
 
     // ---- The houses ----
+    sectionIdField('housesSectionId', 'houses', 'houses'),
     defineField({
       name: 'housesHeading',
       title: 'Heading',
@@ -227,6 +233,7 @@ export const bespokeTripPage = defineType({
     }),
 
     // ---- Explore Ireland by area ----
+    sectionIdField('areasSectionId', 'areas', 'areas'),
     defineField({
       name: 'areasEyebrow',
       title: 'Eyebrow',
@@ -265,6 +272,7 @@ export const bespokeTripPage = defineType({
     }),
 
     // ---- Sample itineraries ----
+    sectionIdField('itinerariesSectionId', 'itineraries', 'itineraries'),
     defineField({
       name: 'itinerariesHeading',
       title: 'Heading',
@@ -313,6 +321,7 @@ export const bespokeTripPage = defineType({
     }),
 
     // ---- FAQ ----
+    sectionIdField('faqSectionId', 'faq', 'faq'),
     defineField({
       name: 'faqHeading',
       title: 'Heading',
@@ -379,6 +388,7 @@ export const bespokeTripPage = defineType({
     }),
 
     // ---- Enquire ----
+    sectionIdField('enquireSectionId', 'enquire', 'enquire'),
     defineField({
       name: 'enquireHeading',
       title: 'Heading',

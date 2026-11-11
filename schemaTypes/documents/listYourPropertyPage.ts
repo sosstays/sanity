@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one instance per market, managed via Studio Structure
 // (see markets.ts/structure.ts), same pattern as corporateStaysPage. Drives
@@ -20,6 +21,7 @@ export const listYourPropertyPage = defineType({
     { name: 'seo', title: 'SEO / AEO' },
   ],
   fields: [
+    sectionIdField('heroSectionId', 'hero', 'hero'),
     defineField({
       name: 'heroEyebrow',
       title: 'Eyebrow',

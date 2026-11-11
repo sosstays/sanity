@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { defineType, defineField } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one instance only, managed via Studio Structure
 // (see structure.ts), same pattern as bespokeTripPage/corporateStaysPage.
@@ -27,6 +28,7 @@ export const giftMakerPage = defineType({
   ],
   fields: [
     // ---- Hero ----
+    sectionIdField('heroSectionId', 'hero', 'hero'),
     defineField({
       name: 'heroEyebrow',
       title: 'Eyebrow',
@@ -69,6 +71,7 @@ export const giftMakerPage = defineType({
     }),
 
     // ---- Why gift with us ----
+    sectionIdField('whySectionId', 'why', 'why'),
     defineField({
       name: 'whyHeading',
       title: 'Heading',
@@ -117,6 +120,7 @@ export const giftMakerPage = defineType({
     }),
 
     // ---- How it works ----
+    sectionIdField('howSectionId', 'how', 'how'),
     defineField({
       name: 'howHeading',
       title: 'Heading',
@@ -160,6 +164,7 @@ export const giftMakerPage = defineType({
     }),
 
     // ---- FAQ ----
+    sectionIdField('faqSectionId', 'faq', 'faq'),
     defineField({
       name: 'faqHeading',
       title: 'Heading',
@@ -225,6 +230,7 @@ export const giftMakerPage = defineType({
     }),
 
     // ---- Closing CTA ----
+    sectionIdField('ctaSectionId', 'cta', 'cta'),
     defineField({
       name: 'ctaHeading',
       title: 'Heading',

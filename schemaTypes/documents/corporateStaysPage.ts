@@ -3,6 +3,7 @@ import { defineType, defineField, defineArrayMember } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
 import { iconField } from '../shared/iconField'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one instance only, managed via Studio Structure
 // (see structure.ts), same pattern as heroSection/hostsModule. Drives the
@@ -30,6 +31,7 @@ export const corporateStaysPage = defineType({
   ],
   fields: [
     // ---- Hero ----
+    sectionIdField('heroSectionId', 'hero', 'hero'),
     defineField({
       name: 'heroBadge',
       title: 'Badge Text',
@@ -97,6 +99,7 @@ export const corporateStaysPage = defineType({
     }),
 
     // ---- Who we house ----
+    sectionIdField('whoSectionId', 'who', 'who'),
     defineField({
       name: 'whoEyebrow',
       title: 'Eyebrow',
@@ -147,6 +150,7 @@ export const corporateStaysPage = defineType({
     }),
 
     // ---- How it works ----
+    sectionIdField('howSectionId', 'how', 'how'),
     defineField({
       name: 'howEyebrow',
       title: 'Eyebrow',
@@ -190,6 +194,7 @@ export const corporateStaysPage = defineType({
     }),
 
     // ---- Coverage ----
+    sectionIdField('coverageSectionId', 'coverage', 'coverage'),
     defineField({
       name: 'coverageEyebrow',
       title: 'Eyebrow',
@@ -266,6 +271,7 @@ export const corporateStaysPage = defineType({
     }),
 
     // ---- What's included ----
+    sectionIdField('includedSectionId', 'included', 'included'),
     defineField({
       name: 'includedEyebrow',
       title: 'Eyebrow',
@@ -322,6 +328,7 @@ export const corporateStaysPage = defineType({
     }),
 
     // ---- Partner with us (property owners) ----
+    sectionIdField('partnerSectionId', 'partner', 'partner'),
     // Copy + CTA are editable here; the property image grid itself is not
     // — it's a live query against propertyPage documents (see
     // CORPORATE_ONBOARDED_PROPERTIES_QUERY in web/src/sanity/queries.ts),
@@ -365,6 +372,7 @@ export const corporateStaysPage = defineType({
     }),
 
     // ---- FAQ ----
+    sectionIdField('faqSectionId', 'faq', 'faq'),
     defineField({
       name: 'faqEyebrow',
       title: 'Eyebrow',
@@ -420,6 +428,7 @@ export const corporateStaysPage = defineType({
     }),
 
     // ---- Closing CTA ----
+    sectionIdField('closingSectionId', 'closing', 'closing'),
     defineField({
       name: 'closingHeading',
       title: 'Heading',

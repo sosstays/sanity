@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { defineType, defineField, defineArrayMember } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
+import { sectionIdField } from '../shared/sectionIdField'
 
 // Singleton document — one instance only, managed via Studio Structure
 // (see structure.ts), same pattern as aboutPage/partnersPage. Drives the
@@ -21,6 +22,7 @@ export const shopPage = defineType({
   ],
   fields: [
     // ---- Hero ----
+    sectionIdField('heroSectionId', 'hero', 'hero'),
     defineField({
       name: 'heroEyebrow',
       title: 'Eyebrow',
@@ -69,6 +71,7 @@ export const shopPage = defineType({
     }),
 
     // ---- Shelves ----
+    sectionIdField('shelvesSectionId', 'shelves', 'shelves'),
     defineField({
       name: 'vouchersBlurb',
       title: 'eVouchers Shelf Blurb',
