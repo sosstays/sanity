@@ -1,5 +1,5 @@
 import { createElement } from 'react'
-import { defineType, defineField } from 'sanity'
+import { defineType, defineField, defineArrayMember } from 'sanity'
 import { Icon } from '@sanity/icons'
 import { seoFields } from '../shared/seoFields'
 import { sectionIdField } from '../shared/sectionIdField'
@@ -18,6 +18,8 @@ export const listYourPropertyPage = defineType({
   icon: () => createElement(Icon, { symbol: 'home' }),
   groups: [
     { name: 'hero', title: 'Hero', default: true },
+    { name: 'how', title: 'How this works' },
+    { name: 'form', title: 'Form' },
     { name: 'seo', title: 'SEO / AEO' },
   ],
   fields: [
@@ -46,6 +48,54 @@ export const listYourPropertyPage = defineType({
       initialValue:
         'This is not our regular Airbnb management sign-up — it only feeds contractor crews, relocating professionals and other long-stay corporate guests. We review every submission before anything goes live, and nothing here is shared or booked outside our team.',
     }),
+
+    // ---- How this works ----
+    sectionIdField('howSectionId', 'how', 'how-this-works'),
+    defineField({
+      name: 'howHeading',
+      title: 'Heading',
+      type: 'string',
+      group: 'how',
+      initialValue: 'How this works',
+    }),
+    defineField({
+      name: 'howIntro',
+      title: 'Intro line',
+      type: 'text',
+      rows: 3,
+      group: 'how',
+      description: 'Sits above the three boxes. Leave blank to keep the default copy.',
+    }),
+    defineField({
+      name: 'howItems',
+      title: 'Boxes',
+      type: 'array',
+      group: 'how',
+      description:
+        'The explainer boxes, in order — three fit best. Leave empty to keep the default three ("We find the booking", "We handle the enquiry", "You stay in control").',
+      validation: (rule) => rule.max(3).warning('Three boxes fit the layout best.'),
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'howItem',
+          fields: [
+            defineField({ name: 'title', title: 'Heading', type: 'string', validation: (rule) => rule.required() }),
+            defineField({
+              name: 'body',
+              title: 'Body',
+              type: 'text',
+              rows: 3,
+              validation: (rule) => rule.required(),
+            }),
+          ],
+          preview: { select: { title: 'title', subtitle: 'body' } },
+        }),
+      ],
+    }),
+
+    // ---- Form ----
+    sectionIdField('formSectionId', 'form', 'submit'),
+
     ...seoFields.map((field) => ({ ...field, group: 'seo' })),
   ],
   preview: {
