@@ -8,6 +8,7 @@ import { siteSettings } from './documents/siteSettings'
 import { footer } from './documents/footer'
 import { navigation } from './documents/navigation'
 import { heroSection } from './documents/heroSection'
+import { homePage } from './documents/homePage'
 import { hostsModule } from './documents/hostsModule'
 import { audienceTabs } from './documents/audienceTabs'
 import { privacyPolicyPage } from './documents/privacyPolicyPage'
@@ -39,6 +40,7 @@ export const schemaTypes = [
   footer,
   navigation,
   heroSection,
+  homePage,
   hostsModule,
   audienceTabs,
   privacyPolicyPage,

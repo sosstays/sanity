@@ -128,6 +128,16 @@ export const propertyPage = defineType({
       validation: (rule) => rule.min(3).warning('At least 3 photos recommended for a strong listing page'),
     }),
     defineField({
+      name: 'homepageImage',
+      title: 'Homepage image',
+      type: 'image',
+      group: 'content',
+      options: { hotspot: true },
+      description:
+        'Optional. The photo that leads this property on the homepage — the large tile in the "A few places to start" slider and the hero photo when a search prompt points at this stay. Leave empty to use the first gallery photo.',
+      fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string' })],
+    }),
+    defineField({
       name: 'video',
       title: 'Video Tour',
       type: 'file',
