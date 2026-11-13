@@ -8,10 +8,11 @@ import { Icon } from '@sanity/icons'
 //
 //   Search prompts       — the lines the hero's search bar "types" by
 //                          itself, each mapped to a search location.
-//   Bottom menu          — the floating menu fixed to the bottom of the
-//                          homepage (the header itself is only the logo
-//                          and one button).
-//   Partner initiatives  — the tiles under the big logo after the footer.
+//   Header button        — the one button in the homepage header.
+//   Bottom menu          — the floating menu fixed to the bottom of every
+//                          page.
+//   Partner initiatives  — the tiles under the big logo after the footer,
+//                          on every page.
 //                          These are NOT the Partners directory entries
 //                          (see partner.ts) — they're their own list.
 //
@@ -25,11 +26,31 @@ export const homePage = defineType({
   type: 'document',
   icon: () => createElement(Icon, { symbol: 'home' }),
   groups: [
+    { name: 'header', title: 'Header button' },
     { name: 'search', title: 'Search prompts', default: true },
     { name: 'menu', title: 'Bottom menu' },
     { name: 'initiatives', title: 'Partner initiatives' },
   ],
   fields: [
+    // ---- Header button ----
+    defineField({
+      name: 'headerCtaLabel',
+      title: 'Button label',
+      type: 'string',
+      group: 'header',
+      initialValue: 'Corporate stays',
+      description: 'The one button in the homepage header, beside the logo. Defaults to "Corporate stays".',
+      validation: (rule) => rule.max(24),
+    }),
+    defineField({
+      name: 'headerCtaUrl',
+      title: 'Button link',
+      type: 'string',
+      group: 'header',
+      initialValue: '/corporate-stays',
+      description: 'Relative path (e.g. /corporate-stays) or full URL. Defaults to /corporate-stays.',
+    }),
+
     // ---- Search prompts ----
     defineField({
       name: 'searchPrompts',
@@ -90,7 +111,7 @@ export const homePage = defineType({
       type: 'array',
       group: 'menu',
       description:
-        'The menus in the floating bar at the bottom of the homepage, left to right. Each opens upward to show its links. Four fit comfortably on a phone. Leave empty to use the built-in defaults (Stays, Areas, Owners, More).',
+        'The menus in the floating bar at the bottom of every page, left to right. Each opens upward to show its links. Four fit comfortably on a phone. Leave empty to use the built-in defaults (Stays, Areas, Owners, More).',
       validation: (rule) => rule.max(5).warning('More than five menus will not fit on a phone.'),
       of: [
         defineArrayMember({
@@ -160,7 +181,7 @@ export const homePage = defineType({
       type: 'array',
       group: 'initiatives',
       description:
-        'The tiles under the big logo at the very bottom of the homepage, two per row — four fill it neatly. Separate from the Partners directory. Leave empty to show only the logo.',
+        'The tiles under the big logo at the very bottom of every page, two per row — four fill it neatly. Separate from the Partners directory. Leave empty to show only the logo.',
       validation: (rule) => rule.max(6).warning('Four tiles (two rows) is the intended layout.'),
       of: [
         defineArrayMember({
