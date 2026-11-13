@@ -77,7 +77,14 @@ export const blogPost = defineType({
                 title: 'URL',
                 type: 'object',
                 fields: [
-                  defineField({ name: 'href', title: 'URL', type: 'url', validation: (rule) => rule.required() }),
+                  defineField({
+                    name: 'href',
+                    title: 'URL',
+                    type: 'url',
+                    description: 'A full link (https://...) or a same-page jump link (e.g. #enquire) to an anchor elsewhere on this page.',
+                    validation: (rule) =>
+                      rule.required().uri({ scheme: ['http', 'https', 'mailto', 'tel'], allowRelative: true }),
+                  }),
                 ],
               }),
               { type: 'anchor' },
