@@ -27,6 +27,7 @@ export const bespokeTripPage = defineType({
     { name: 'houses', title: 'The Houses' },
     { name: 'areas', title: 'Areas' },
     { name: 'itineraries', title: 'Sample Itineraries' },
+    { name: 'us', title: 'Coming from the US' },
     { name: 'faq', title: 'FAQ' },
     { name: 'enquire', title: 'Enquire' },
     { name: 'seo', title: 'SEO / AEO' },
@@ -320,6 +321,62 @@ export const bespokeTripPage = defineType({
       ],
     }),
 
+    // ---- Coming from the US ----
+    sectionIdField('usSectionId', 'us', 'coming-from-the-us'),
+    defineField({
+      name: 'usHeading',
+      title: 'Heading',
+      type: 'string',
+      group: 'us',
+      initialValue: 'Coming from the US',
+    }),
+    defineField({
+      name: 'usItems',
+      title: 'Items',
+      type: 'array',
+      group: 'us',
+      description: 'Shown as a bold lead-in word/phrase followed by the body text, e.g. "Flights — Direct nonstops...".',
+      of: [
+        {
+          type: 'object',
+          name: 'usItem',
+          fields: [
+            defineField({ name: 'title', title: 'Lead-in (bold)', type: 'string', validation: (rule) => rule.required() }),
+            defineField({ name: 'body', title: 'Body', type: 'text', rows: 2, validation: (rule) => rule.required() }),
+          ],
+          preview: { select: { title: 'title', subtitle: 'body' } },
+        },
+      ],
+      initialValue: [
+        {
+          _key: 'flights',
+          title: 'Flights',
+          body: 'Direct nonstops from hubs like New York, Boston and Chicago land in Dublin and Shannon, usually overnight. We recommend timing; you book.',
+        },
+        {
+          _key: 'driving',
+          title: 'Driving',
+          body: "Most Americans self-drive; we keep daily drives short. Prefer not to drive? We'll arrange a driver.",
+        },
+        {
+          _key: 'moneyTipping',
+          title: 'Money & tipping',
+          body: 'The euro; quotes in USD or EUR. Tipping is lighter than the US (10–15%).',
+        },
+        {
+          _key: 'bestTimeToCome',
+          title: 'Best time to come',
+          body:
+            "May–Sept for long days, June/Sept for lighter crowds, spring/fall for golf. St. Patrick's Day week and the Ryder Cup book early.",
+        },
+        {
+          _key: 'yourContact',
+          title: 'Your contact',
+          body: 'We work on US time zones.',
+        },
+      ],
+    }),
+
     // ---- FAQ ----
     sectionIdField('faqSectionId', 'faq', 'faq'),
     defineField({
@@ -383,6 +440,42 @@ export const bespokeTripPage = defineType({
           question: 'How do we get started?',
           answer:
             "Email hello@sosstays.com or use the form below with your ideal month, group size and what everyone wants to do. We'll come back with a plan and a price.",
+        },
+        {
+          _key: 'visaForAmericans',
+          question: 'Do Americans need a visa to visit Ireland?',
+          answer:
+            "No. US citizens can visit the Republic of Ireland visa-free for stays of up to 90 days — just a valid passport, no advance application needed. Ireland isn't part of the Schengen Area, so the EU's new ETIAS system (rolling out for places like France, Spain and Italy) doesn't apply here either. One thing worth knowing if your trip includes Northern Ireland (Belfast, the Giant's Causeway, etc.): that's part of the UK, so you'll need a UK Electronic Travel Authorisation (ETA) before crossing — even over the land border from the Republic. It's quick to apply for online and lasts two years, but it's a different system from anything to do with the Republic itself. (Rules like this do shift, so always double-check gov.ie and gov.uk/eta closer to your travel dates.)",
+        },
+        {
+          _key: 'rentalCarOrDriver',
+          question: 'Should I rent a car, or is it better to have a driver?',
+          answer:
+            "Depends on what kind of trip you want. A rental car gives you freedom — stop wherever catches your eye, no schedule but your own. Ireland's roads are narrow by American standards though, and driving on the left takes a day or two to stop thinking about. Go small — a compact or mid-size hatchback, not an SUV. You'll thank yourself on some of the coastal lanes. A driver (or driver-guide) makes sense if your group would rather sit back, if anyone's nervous about left-hand driving, or if the evenings are going to involve a pub and a pint — nobody wants to be the designated driver every night of a week-long trip. It costs more, but for groups splitting it, it's often not much per person.",
+        },
+        {
+          _key: 'bestTimeFamily',
+          question: "What's the best time of year for an American family to visit Ireland?",
+          answer:
+            "Late spring (May–June) and early autumn (September) are usually the sweet spot — long daylight hours, a decent shot at dry weather, and things haven't gotten as busy or pricey as peak summer. July and August are the most reliably warm but also the most crowded and most expensive for flights and accommodation. If you're set on summer because of school holidays, that's completely workable too — just book accommodation and any popular attractions (Cliffs of Moher, Guinness Storehouse, etc.) well ahead. Winter has its own quiet charm, but shorter days and more rain mean it suits a different kind of trip than a family holiday.",
+        },
+        {
+          _key: 'tenDayCost',
+          question: 'How much does a 10-day trip to Ireland cost from the US?',
+          answer:
+            "This swings a lot depending on how you travel, but as a rough shape: flights from the US typically run $600–$1,200+ per person depending on season and city, accommodation varies hugely from budget guesthouses to higher-end stays, and you'll want a daily budget for food, car hire or driver, and activities on top of that. Mid-range, a couple might budget somewhere in the region of $4,000–$6,000 total for 10 days including flights; it can run well above or below that depending on choices. Happy to put together an actual cost breakdown for your specific group size and style of trip if that'd help — it's a very different number for a family of four self-driving versus a golf group with a chauffeured minibus.",
+        },
+        {
+          _key: 'dublinToCliffs',
+          question: 'How do we get from Dublin to the Cliffs of Moher?',
+          answer:
+            "It's about 250km (roughly 3 hours) by car — the most straightforward way, especially once you're past Ennis and onto the smaller coastal roads near the Cliffs themselves. Public transport is possible but slow: train plus bus connections typically run 5–7+ hours each way with transfers, so it's not realistic as a day trip without a car. Most visitors either drive themselves, join a guided day tour from Dublin, or — if they're staying out west anyway — treat the Cliffs as a short hop rather than a long haul.",
+        },
+        {
+          _key: 'ryderCupGolfTrip',
+          question: 'Can you arrange a golf trip around the Ryder Cup 2027?',
+          answer:
+            "We can absolutely help plan a trip around it. The Ryder Cup takes place at Adare Manor, Co. Limerick, 13–19 September 2027 — about an hour from our Howard's Way property near Lahinch, which makes the area a solid base for combining spectating with links golf at Lahinch, Doonbeg or Ballybunion. A few honest notes: general admission has reportedly sold out via ballot already, so tickets are the piece to sort first — organisers have advised against booking accommodation before you have them confirmed. Accommodation in the region for that week is expected to fill up well in advance too. If you let us know where things stand on tickets, we can talk through timing and availability.",
         },
       ],
     }),
