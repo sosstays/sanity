@@ -220,6 +220,29 @@ export const propertyPage = defineType({
       description: 'Shown as a tag next to the property name, e.g. "From €150/night". Not connected to Uplisting — update manually as rates change.',
     }),
     defineField({
+      name: 'offerMinPrice',
+      title: 'Lowest nightly price, EUR (for search engines)',
+      type: 'number',
+      group: 'content',
+      description:
+        'Feeds a structured "Offer" price range in this page\'s schema.org data, so Google can show a price. An approximate manual figure, like Price above — not connected to Uplisting. Leave both this and Highest price blank to omit the Offer entirely.',
+      validation: (rule) => rule.positive(),
+    }),
+    defineField({
+      name: 'offerMaxPrice',
+      title: 'Highest nightly price, EUR (for search engines)',
+      type: 'number',
+      group: 'content',
+      validation: (rule) =>
+        rule.positive().custom((value, context) => {
+          const min = (context.document as { offerMinPrice?: number } | undefined)?.offerMinPrice;
+          if (value != null && min != null && value < min) {
+            return 'Highest price must be at least the lowest price.';
+          }
+          return true;
+        }),
+    }),
+    defineField({
       name: 'bedrooms',
       title: 'Bedrooms',
       type: 'number',
