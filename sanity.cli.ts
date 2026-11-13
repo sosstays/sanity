@@ -9,9 +9,9 @@ export default defineCliConfig({
     appId: 'tdtrv03r8hbr7lziri4r1jcv',
   },
   typegen: {
-    path: '../web/src/**/*.{ts,tsx}',
+    path: '../sosstays/src/**/*.{ts,tsx}',
     schema: 'schema.json',
-    generates: '../web/src/sanity/sanity.types.ts',
+    generates: '../sosstays/src/sanity/sanity.types.ts',
     overloadClientMethods: true,
   },
 })
