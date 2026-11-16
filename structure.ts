@@ -105,5 +105,5 @@ const sharedSection = (S: Builder) =>
 
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title('SOS Stays')
+    .title('Sos Stays')
     .items([...markets.map((m) => marketSection(S, m)), S.divider(), sharedSection(S)])

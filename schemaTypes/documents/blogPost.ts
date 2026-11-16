@@ -138,6 +138,14 @@ export const blogPost = defineType({
       ],
     }),
     defineField({
+      name: 'authorRef',
+      title: 'Author profile',
+      type: 'reference',
+      group: 'content',
+      to: [{ type: 'author' }],
+      description: 'Optional. Pick an author profile to link the byline to their author page. When set, it is used instead of the name/role/avatar typed above.',
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',

@@ -35,6 +35,14 @@ export const landlordPage = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'heroHeading',
+      title: 'Page Heading (H1)',
+      type: 'text',
+      rows: 2,
+      group: 'content',
+      description: 'The big heading at the top of the page. Each line here is shown on its own line. Leave blank to keep the built-in heading ("You\'re already doing this yourself. Let\'s do it better.").',
+    }),
+    defineField({
       name: 'heroStatement',
       title: 'Hero Statement',
       type: 'string',

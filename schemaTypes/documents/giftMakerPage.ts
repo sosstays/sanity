@@ -59,7 +59,7 @@ export const giftMakerPage = defineType({
       rows: 4,
       group: 'hero',
       initialValue:
-        "Answer a few quick questions — who it's for, how many people, your budget per gift — and we'll put together real options, built from what's actually in our shop today. Every package leads with an SOS Stays gift voucher, so there's always something flexible in the mix, then fills out with Irish-made treats and local experiences around it.",
+        "Answer a few quick questions — who it's for, how many people, your budget per gift — and we'll put together real options, built from what's actually in our shop today. Every package leads with a Sos Stays gift voucher, so there's always something flexible in the mix, then fills out with Irish-made treats and local experiences around it.",
     }),
     defineField({
       name: 'heroImage',
@@ -77,7 +77,7 @@ export const giftMakerPage = defineType({
       title: 'Heading',
       type: 'string',
       group: 'why',
-      initialValue: 'Why gift through SOS Stays',
+      initialValue: 'Why gift through Sos Stays',
     }),
     defineField({
       name: 'whyItems',
@@ -104,7 +104,7 @@ export const giftMakerPage = defineType({
         {
           _key: 'votherPriority',
           title: 'A voucher in every package, first',
-          text: 'Unless you choose physical-only, an SOS Stays gift voucher is allocated first in every suggestion, so there is always something flexible for them to use whenever they like.',
+          text: 'Unless you choose physical-only, a Sos Stays gift voucher is allocated first in every suggestion, so there is always something flexible for them to use whenever they like.',
         },
         {
           _key: 'budgetBuilt',
@@ -195,7 +195,7 @@ export const giftMakerPage = defineType({
           _key: 'whatsIncluded',
           question: "What's included in a gift package?",
           answer:
-            'Usually an SOS Stays gift voucher (€25, €50, €75 or €100, picked to fit your budget) plus one or two real items from our shop — cookies, a fairy door, a spa ritual, a day out at Funtasia. You can add or remove items before requesting a quote.',
+            'Usually a Sos Stays gift voucher (€25, €50, €75 or €100, picked to fit your budget) plus one or two real items from our shop — cookies, a fairy door, a spa ritual, a day out at Funtasia. You can add or remove items before requesting a quote.',
         },
         {
           _key: 'customise',

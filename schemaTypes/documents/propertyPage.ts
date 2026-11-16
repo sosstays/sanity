@@ -286,6 +286,28 @@ export const propertyPage = defineType({
       validation: (rule) => rule.min(0),
     }),
     defineField({
+      name: 'reviewSource',
+      title: 'Review Score Source',
+      type: 'string',
+      group: 'content',
+      description: 'Where the score and count above come from, e.g. "Airbnb" or "Booking.com". Shown next to the score.',
+    }),
+    defineField({
+      name: 'reviewSourceUrl',
+      title: 'Review Score Source Link',
+      type: 'url',
+      group: 'content',
+      description: 'Optional link to the listing the score was taken from.',
+      validation: (rule) => rule.uri({ scheme: ['http', 'https'] }),
+    }),
+    defineField({
+      name: 'reviewAsOf',
+      title: 'Review Score As Of',
+      type: 'date',
+      group: 'content',
+      description: 'The date the score and count above were last checked. Shown as "as of <date>".',
+    }),
+    defineField({
       name: 'reviewCategories',
       title: 'Review Categories',
       type: 'array',

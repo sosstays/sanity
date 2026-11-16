@@ -26,6 +26,9 @@ import { shopPage } from './documents/shopPage'
 import { shopProduct } from './documents/shopProduct'
 import { promoGrid } from './documents/promoGrid'
 import { countrySwitcher } from './documents/countrySwitcher'
+import { author } from './documents/author'
+import { redirect } from './documents/redirect'
+import { review } from './documents/review'
 
 export const schemaTypes = [
   // Shared object types
@@ -58,4 +61,7 @@ export const schemaTypes = [
   shopProduct,
   promoGrid,
   countrySwitcher,
+  author,
+  redirect,
+  review,
 ]
