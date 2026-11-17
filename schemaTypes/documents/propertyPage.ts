@@ -86,6 +86,20 @@ export const propertyPage = defineType({
       validation: (rule) => rule.uri({ scheme: ['http', 'https'] }),
     }),
     defineField({
+      name: 'googlePlaceId',
+      title: 'Google Place ID',
+      type: 'string',
+      group: 'content',
+      description:
+        'Shows this property\'s Google reviews on its page. To find it: search "Google Place ID Finder", open Google\'s tool, type the property\'s name as it appears on Google Maps, select it, and copy the Place ID (a code starting with "ChIJ"). Leave blank to hide the Google reviews section.',
+      validation: (rule) =>
+        rule.custom((value) =>
+          !value || /^[A-Za-z0-9_-]{20,}$/.test(value.trim())
+            ? true
+            : 'That does not look like a Place ID — it should be one code with no spaces, e.g. ChIJN1t_tDeuEmsRUsoyG83frY4'
+        ),
+    }),
+    defineField({
       name: 'destinationHeading',
       title: 'Destination Heading (homepage stays carousel)',
       type: 'string',

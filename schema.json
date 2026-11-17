@@ -10051,6 +10051,13 @@
         },
         "optional": true
       },
+      "googlePlaceId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "destinationHeading": {
         "type": "objectAttribute",
         "value": {
