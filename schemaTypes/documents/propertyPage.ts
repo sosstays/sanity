@@ -39,6 +39,15 @@ export const propertyPage = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'hiddenFromListings',
+      title: 'Hide from listings',
+      type: 'boolean',
+      group: 'content',
+      initialValue: false,
+      description:
+        'Removes this property from the homepage, /stays, the corporate-stays grid and the shop delivery picker. The page itself stays live and bookable at its own URL for anyone with the direct link — this only stops it being discovered.',
+    }),
+    defineField({
       name: 'location',
       title: 'Location',
       type: 'string',
@@ -518,6 +527,11 @@ export const propertyPage = defineType({
     ...seoFields.map((field) => ({ ...field, group: 'seo' })),
   ],
   preview: {
-    select: { title: 'name', media: 'gallery.0', subtitle: 'location' },
+    select: { title: 'name', media: 'gallery.0', subtitle: 'location', hidden: 'hiddenFromListings' },
+    prepare: ({ title, media, subtitle, hidden }) => ({
+      title,
+      media,
+      subtitle: hidden ? `${subtitle} — Hidden from listings` : subtitle,
+    }),
   },
 })

@@ -93,7 +93,7 @@ export const siteSettings = defineType({
         {
           type: 'reference',
           to: [{ type: 'propertyPage' }],
-          options: { disableNew: true },
+          options: { disableNew: true, filter: 'hiddenFromListings != true' },
         },
       ],
     }),
