@@ -282,7 +282,7 @@ export const aboutPage = defineType({
           description: 'A guest house outside Ardee, your base for the Boyne Valley.',
         },
         {
-          name: 'Tinneshrule Farm Lodge',
+          name: 'Tinnashrule Farm Lodge',
           href: '/stays/tinneshrule-farm-lodge',
           location: 'Ferns, Co. Wexford',
           description: 'A working-farm studio in Ferns. No TV, strong WiFi, does what it says on the tin.',
