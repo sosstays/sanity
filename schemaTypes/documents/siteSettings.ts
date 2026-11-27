@@ -77,6 +77,13 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
+      name: 'googlePlaceId',
+      title: 'Google Place ID (business-wide reviews)',
+      type: 'string',
+      description:
+        'Powers the "Hear it from our guests" reviews section on the homepage, pulling the overall Google Business Profile rating and reviews — not one property\'s own. Find it by searching the business name on https://developers.google.com/maps/documentation/places/web-service/place-id and copying the Place ID shown (starts with "ChIJ"); a numeric Google review/CID link will not work here.',
+    }),
+    defineField({
       name: 'bookingSubdomainUrl',
       title: 'Uplisting Booking Subdomain URL',
       type: 'url',
