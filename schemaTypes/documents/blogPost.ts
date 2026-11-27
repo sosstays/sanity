@@ -120,30 +120,12 @@ export const blogPost = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'object',
-      group: 'content',
-      description: 'Shown on the article header and byline. Leave blank to credit the Sos Stays team.',
-      fields: [
-        defineField({ name: 'name', title: 'Name', type: 'string' }),
-        defineField({ name: 'role', title: 'Role', type: 'string', description: 'e.g. "Owner, Rathescar Grove"' }),
-        defineField({
-          name: 'avatar',
-          title: 'Avatar',
-          type: 'image',
-          options: { hotspot: true },
-          fields: [defineField({ name: 'alt', title: 'Alt Text', type: 'string' })],
-        }),
-      ],
-    }),
-    defineField({
       name: 'authorRef',
-      title: 'Author profile',
+      title: 'Author',
       type: 'reference',
       group: 'content',
       to: [{ type: 'author' }],
-      description: 'Optional. Pick an author profile to link the byline to their author page. When set, it is used instead of the name/role/avatar typed above.',
+      description: 'Shown on the article header and byline, linked to their author page. Leave blank to credit the Sos Stays team.',
     }),
     defineField({
       name: 'tags',
